@@ -52,25 +52,6 @@ class AdminExampleController extends ModuleAdminController
 
         $this->bootstrap = true;
 
-        parent::__construct();
-    }
-
-    /**
-     * Function used to render the list to display for this controller
-     */
-    public function renderList()
-    {
-        $this->addRowAction('edit');
-        $this->addRowAction('delete');
-        $this->addRowAction('details');
-
-        $this->bulk_actions = array(
-            'delete' => array(
-                'text' => $this->l('Delete selected'),
-                'confirm' => $this->l('Delete selected items?')
-                )
-            );
-
         $this->fields_list = array(
             'id_example_data' => array(
                 'title' => $this->l('ID'),
@@ -90,6 +71,26 @@ class AdminExampleController extends ModuleAdminController
             'align' => 'center',
             'position' => 'position'
         );
+        
+        parent::__construct();
+    }
+
+    /**
+     * Function used to render the list to display for this controller
+     */
+    public function renderList()
+    {
+        $this->addRowAction('edit');
+        $this->addRowAction('delete');
+        $this->addRowAction('details');
+
+        $this->bulk_actions = array(
+            'delete' => array(
+                'text' => $this->l('Delete selected'),
+                'confirm' => $this->l('Delete selected items?')
+                )
+            );
+       
 
         $lists = parent::renderList();
 
